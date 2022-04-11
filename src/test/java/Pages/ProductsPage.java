@@ -36,7 +36,8 @@ public class ProductsPage {
     public boolean removeItemFromTheCart(String productName) {
         String xpathOfElementToBeAdded = String.format(REMOVE_TO_CART_LOCATOR, productName);
         FluentWait fluentWait = new FluentWait(driver)
-                .withTimeout(Duration.ofSeconds(3));
+                .withTimeout(Duration.ofSeconds(20))
+                .pollingEvery(Duration.ofSeconds(3));
 
         WebElement removeButton = driver.findElement(By.xpath(xpathOfElementToBeAdded));
         fluentWait.until(ExpectedConditions.elementToBeClickable(removeButton));
