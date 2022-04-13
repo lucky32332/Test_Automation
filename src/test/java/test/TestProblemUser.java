@@ -24,7 +24,7 @@ public class TestProblemUser extends TestUtil {
         //Soft Assert
         SoftAssert softAssert = new SoftAssert();
 
-        softAssert.assertEquals(productsPage.getItemsInTheCart(), 0, "Because we have only one item so far");
+        softAssert.assertEquals(productsPage.getItemsInTheCart(), 0, "Because we expected only null item so far");
         System.out.println("I will be executed");
 
         //for example at the end of the test

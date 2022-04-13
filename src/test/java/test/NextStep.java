@@ -14,14 +14,14 @@ public class NextStep extends TestUtil {
         LoginPage loginPage = new LoginPage(driver);
         ProductsPage productsPage = loginPage.login("standard_user", "secret_sauce");
         productsPage.addItemToTheCart("onesie");
-        CartPage cartPage = productsPage.login();
+        CartPage cartPage = productsPage.nextStep();
         CheckoutYourInformation checkoutYourInformation = cartPage.Checkout();
         CheckoutOverview checkoutOverview = checkoutYourInformation.proceed();
         checkoutOverview.Finish();
 
         WebElement view = driver.findElement(By.xpath("//*[@id='checkout_complete_container']"));
 
-                Assert.assertTrue(view.isDisplayed(), "This shall be visible after successfull proceed page");
+        Assert.assertTrue(view.isDisplayed(), "This shall be visible after successfull proceed page");
 
     }
 }

@@ -58,7 +58,7 @@ public class ProductsPage {
         }
     }
 
-    public CartPage login() {
+    public CartPage nextStep() {
 
 
         shoppingCartLink.click();

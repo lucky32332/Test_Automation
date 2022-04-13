@@ -13,9 +13,45 @@
             <class name="test.WrongTests"/>
         </classes>
     </test>
-    <test name="Wait Test">
+    <test name="ProductTests">
         <classes>
             <class name="test.ProductTests"/>
         </classes>
     </test>
+    <test name="BuyProductsFromCart">
+         <classes>
+             <class name="test.BuyProductsFromCart"/>
+         </classes>
+
+    </test>
+    <test name="NextStep">
+        <classes>
+            <class name="test.NextStep"/>
+        </classes>
+
+    </test>
+    <test name="PaymentPage">
+        <classes>
+            <class name="test.PaymentPage"/>
+        </classes>
+
+    </test>
+
+    <test name="BackButton">
+        <classes>
+            <class name="test.BackButton"/>
+        </classes>
+
+    </test>
+
+    <test name="TestProblemUser">
+        <classes>
+            <class name="test.TestProblemUser"/>
+        </classes>
+
+    </test>
+
+
+
+
 </suite>

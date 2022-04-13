@@ -16,7 +16,7 @@ public class BuyProductsFromCart extends TestUtil {
         LoginPage loginPage = new LoginPage(driver);
         ProductsPage productsPage = loginPage.login("standard_user", "secret_sauce");
         productsPage.addItemToTheCart("onesie");
-       CartPage cartPage = productsPage.login();
+       CartPage cartPage = productsPage.nextStep();
        cartPage.Checkout();
 
 

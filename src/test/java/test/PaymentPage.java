@@ -9,7 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
+
 
 public class PaymentPage extends TestUtil {
     @Test
@@ -17,7 +17,7 @@ public class PaymentPage extends TestUtil {
         LoginPage loginPage = new LoginPage(driver);
         ProductsPage productsPage = loginPage.login("standard_user", "secret_sauce");
         productsPage.addItemToTheCart("onesie");
-        CartPage cartPage = productsPage.login();
+        CartPage cartPage = productsPage.nextStep();
         CheckoutYourInformation checkoutYourInformation = cartPage.Checkout();
        checkoutYourInformation.proceed();
 
