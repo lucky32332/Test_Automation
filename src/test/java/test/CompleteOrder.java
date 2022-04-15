@@ -8,22 +8,20 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
-public class BackButton extends TestUtil {
+public class CompleteOrder extends TestUtil {
     @Test
-    public void BackButton() {
+    public void CompleteOrder() {
         LoginPage loginPage = new LoginPage(driver);
         ProductsPage productsPage = loginPage.login("standard_user", "secret_sauce");
         productsPage.addItemToTheCart("onesie");
         CartPage cartPage = productsPage.nextStep();
         CheckoutYourInformation checkoutYourInformation = cartPage.Checkout();
         CheckoutOverview checkoutOverview = checkoutYourInformation.proceed();
-        EndCheckout endCheckout = checkoutOverview.Finish();
-        endCheckout.Checkout();
+        checkoutOverview.Finish();
 
-        WebElement visual = driver.findElement(By.className("shopping_cart_link") );
+        WebElement view = driver.findElement(By.xpath("//*[@id='checkout_complete_container']"));
 
-        Assert.assertTrue(visual.isDisplayed(), "This shall be visible after successfull proceed page");
-
+        Assert.assertTrue(view.isDisplayed(), "This shall be visible after successfull proceed page");
 
     }
 }

@@ -20,7 +20,7 @@ public class BuyProductsFromCart extends TestUtil {
        cartPage.Checkout();
 
 
-
+        Assert.assertEquals(productsPage.getItemsInTheCart(), 1, "Because we have only one item so far");
 
         WebElement visual = driver.findElement(By.id("checkout_info_container"));
 

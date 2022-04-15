@@ -1,9 +1,6 @@
 package test;
 
-import Pages.CartPage;
-import Pages.CheckoutYourInformation;
-import Pages.LoginPage;
-import Pages.ProductsPage;
+import Pages.*;
 import base.TestUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -11,19 +8,21 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
-public class PaymentPage extends TestUtil {
+public class BackButtonTest extends TestUtil {
     @Test
-    public void PaymentPage () {
+    public void BackButton() {
         LoginPage loginPage = new LoginPage(driver);
         ProductsPage productsPage = loginPage.login("standard_user", "secret_sauce");
         productsPage.addItemToTheCart("onesie");
         CartPage cartPage = productsPage.nextStep();
         CheckoutYourInformation checkoutYourInformation = cartPage.Checkout();
-       checkoutYourInformation.proceed();
+        CheckoutOverview checkoutOverview = checkoutYourInformation.proceed();
+        EndCheckout endCheckout = checkoutOverview.Finish();
+        endCheckout.Checkout();
 
-        WebElement view = driver.findElement(By.xpath("//*[text()='DESCRIPTION']"));
-        Assert.assertTrue(view.isDisplayed(), "This shall be visible after successfull login");
+        WebElement visual = driver.findElement(By.className("shopping_cart_link") );
 
+        Assert.assertTrue(visual.isDisplayed(), "This shall be visible after successfull proceed page");
 
 
     }
